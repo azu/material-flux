@@ -67,6 +67,10 @@ Update `this.state` and dispatch change.
 
 - `object` is any object.
 
+### Flux
+
+How to connect Action and Store?
+
 ## Contributing
 
 1. Fork it!
