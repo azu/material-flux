@@ -2,6 +2,11 @@
 
 Imaginary flux implementation.
 
+- less trick
+- debuggable
+- ECMAScript6 compatible
+- Class syntax
+
 ## Installation
 
 - [ ] Describe the installation process
@@ -67,6 +72,67 @@ Update `this.state` and dispatch change.
 
 - `object` is any object.
 
+### Flux
+
+How to connect Action and Store?
+=> Create connection object. it is called `Flux` in this context.
+
+```js
+import UserAction from "./UserAction.js"
+import UserStore from "./UserStore.js"
+import {Flux} from 'material-flux';
+
+export default class UserFlux extends Flux {
+    constructor() {
+        this.userAction = new UserAction();
+        // TODO: dependent the order?
+        this.userStore = new UserStore(this);
+    }
+}
+```
+
+### View(Component)
+
+How to connect to View like React?
+=> Pass an instance of `Flux` to React's Component.
+
+```js
+import React from 'react';
+import UserFlux from './UserFlux';
+import App from './AppComponent.jsx';
+var userFlux = new UserFlux();
+React.render(
+    React.createElement(App, { flux }),
+    document.getElementById('main')
+);
+```
+
+AppComponent:
+
+```js
+import React from 'react';
+export default AppComponent extends React.Component {
+    constructor(props) {
+        super(props);
+        var { flux } = this.props;
+        this.state = {
+            userData : flux.userStore.getUserData()
+        };
+    }
+    onClick(event){
+        var { flux } = this.props;
+        flux.userAction.doSomething("clicked");
+    }
+    render() {
+        return (
+            <div onClick={this.onClick}>
+                userData: {this.state.userData}
+            </div>
+        );
+    },
+}
+```
+
 ## Contributing
 
 1. Fork it!
@@ -78,3 +144,7 @@ Update `this.state` and dispatch change.
 ## License
 
 MIT
+
+## Inspiration and thanks
+
+- [Flummox](https://github.com/acdlite/flummox/tree/63e1f13f26724aa1f97da449ea61a3abcbf45360 "Flummox")
