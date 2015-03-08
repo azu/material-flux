@@ -22,12 +22,25 @@ export default class UserStore extends Store {
         var action = flux.userAction;// `flux.userAction` is the instance of `UserAction` class. 
         methodMap.set(action.doSomething, this.onHandler);
         this.registerMap(methodMap);
+        
+        this.state = {
+            userData : null
+        };
     }
     onHandler(data){
       // data is come from Action
+      this.setState({
+        userData : data
+      });
     }
 }
 ```
+
+#### Store#setState(object)
+
+Update `this.state` and dispatch change.
+
+- `object` is any object.
 
 ## Contributing
 
