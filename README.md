@@ -12,7 +12,7 @@ material-flux is consist of `Action`, `Store` and `Flux`.
 
 ### Action
 
-```
+```js
 import {Action} from "material-flux"
 export default class UserAction extends Action {
     doSomething(data) {
