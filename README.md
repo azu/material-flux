@@ -93,6 +93,45 @@ export default class UserFlux extends Flux {
 
 ### View(Component)
 
+How to connect to View like React?
+=> Pass an instance of `Flux` to React's Component.
+
+```js
+import React from 'react';
+import UserFlux from './UserFlux';
+import App from './AppComponent.jsx';
+var userFlux = new UserFlux();
+React.render(
+    React.createElement(App, { flux }),
+    document.getElementById('main')
+);
+```
+
+AppComponent:
+
+```js
+import React from 'react';
+export default AppComponent extends React.Component {
+    constructor(props) {
+        super(props);
+        var { flux } = this.props;
+        this.state = {
+            userData : flux.userStore.getUserData()
+        };
+    }
+    onClick(event){
+        var { flux } = this.props;
+        flux.userAction.doSomething("clicked");
+    }
+    render() {
+        return (
+            <div onClick={this.onClick}>
+                userData: {this.state.userData}
+            </div>
+        );
+    },
+}
+```
 
 ## Contributing
 
