@@ -129,7 +129,7 @@ export default AppComponent extends React.Component {
                 userData: {this.state.userData}
             </div>
         );
-    },
+    }
 }
 ```
 
