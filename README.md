@@ -11,6 +11,15 @@ Imaginary flux implementation.
 material-flux is consist of `Action`, `Store` and `Flux`.
 
 ### Action
+import {Action} from "material-flux"
+export default class UserAction extends Action {
+    doSomething(data) {
+        // pass the `data` to Store's `onHandler`
+        // call `onHandler(data);`
+        return data;
+    }
+}
+```
 
 ### Store
 
