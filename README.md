@@ -2,6 +2,11 @@
 
 Imaginary flux implementation.
 
+- less trick
+- debuggable
+- ECMAScript6 compatible
+- Class syntax
+
 ## Installation
 
 - [ ] Describe the installation process
@@ -70,6 +75,24 @@ Update `this.state` and dispatch change.
 ### Flux
 
 How to connect Action and Store?
+=> Create connection object. it is called `Flux` in this context.
+
+```js
+import UserAction from "./UserAction.js"
+import UserStore from "./UserStore.js"
+import {Flux} from 'material-flux';
+
+export default class UserFlux extends Flux {
+    constructor() {
+        this.userAction = new UserAction();
+        // TODO: dependent the order?
+        this.userStore = new UserStore(this);
+    }
+}
+```
+
+### View(Component)
+
 
 ## Contributing
 
@@ -82,3 +105,7 @@ How to connect Action and Store?
 ## License
 
 MIT
+
+## Inspiration and thanks
+
+- [Flummox](https://github.com/acdlite/flummox/tree/63e1f13f26724aa1f97da449ea61a3abcbf45360 "Flummox")
