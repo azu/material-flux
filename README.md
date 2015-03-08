@@ -114,7 +114,7 @@ import React from 'react';
 export default AppComponent extends React.Component {
     constructor(props) {
         super(props);
-        var { flux } = this.props;
+        var { flux } = props;
         this.state = {
             userData : flux.userStore.getUserData()
         };
