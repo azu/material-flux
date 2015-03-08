@@ -98,7 +98,7 @@ How to connect to View like React?
 
 ```js
 import React from 'react';
-import UserFlux from './UserFlux';
+import UserFlux from './UserFlux.js';
 import App from './AppComponent.jsx';
 var userFlux = new UserFlux();
 React.render(
