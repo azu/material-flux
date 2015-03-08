@@ -33,6 +33,10 @@ export default class UserStore extends Store {
         userData : data
       });
     }
+    // just getter method
+    getUserData(){
+        return this.state.userDate;
+    }
 }
 ```
 
