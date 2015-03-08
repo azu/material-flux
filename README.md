@@ -100,7 +100,7 @@ How to connect to View like React?
 import React from 'react';
 import UserFlux from './UserFlux.js';
 import App from './AppComponent.jsx';
-var userFlux = new UserFlux();
+var flux = new UserFlux();
 React.render(
     React.createElement(App, { flux }),
     document.getElementById('main')
