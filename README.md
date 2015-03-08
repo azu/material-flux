@@ -11,6 +11,8 @@ Imaginary flux implementation.
 material-flux is consist of `Action`, `Store` and `Flux`.
 
 ### Action
+
+```
 import {Action} from "material-flux"
 export default class UserAction extends Action {
     doSomething(data) {
@@ -19,6 +21,15 @@ export default class UserAction extends Action {
         return data;
     }
 }
+```
+
+You can call Action following that:
+
+```js
+// it's instance is proxy(instance).
+var userAction = new UserAction();
+var userData = "some data";
+userAction.doSomething(userData);
 ```
 
 ### Store
