@@ -10,6 +10,7 @@ Imaginary flux implementation.
 
 material-flux is consist of `Action`, `Store` and `Flux`.
 
+### Action
 
 ### Store
 
