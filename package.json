@@ -1,0 +1,36 @@
+{
+  "name": "material-flux",
+  "version": "1.0.0",
+  "description": "no magical flux implementation.",
+  "main": "lib/material-flux.js",
+  "files": ["lib"],
+  "directories": {
+    "example": "examples"
+  },
+  "dependencies": {
+    "object-assign": "^2.0.0",
+    "weak-map": "^1.0.5"
+  },
+  "devDependencies": {
+    "babel": "^4.7.3"
+  },
+  "scripts": {
+    "build": "babel src --out-dir lib --source-maps",
+    "watch": "babel src --out-dir lib --watch --source-maps",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/azu/material-flux.git"
+  },
+  "keywords": [
+    "flux",
+    "react"
+  ],
+  "author": "azu",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/azu/material-flux/issues"
+  },
+  "homepage": "https://github.com/azu/material-flux"
+}
