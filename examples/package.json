@@ -1,0 +1,21 @@
+{
+  "name": "examples",
+  "version": "1.0.0",
+  "description": "",
+  "private": true,
+  "main": "index.js",
+  "scripts": {
+    "build": "browserify -d -e app.js -o bundle.js -t [ babelify --experimental ]",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "azu",
+  "license": "MIT",
+  "dependencies": {
+    "material-flux": "file:..",
+    "react": "^0.12.2"
+  },
+  "devDependencies": {
+    "babelify": "^5.0.4",
+    "browserify": "^9.0.3"
+  }
+}
