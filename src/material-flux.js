@@ -7,8 +7,15 @@ class Flux {
         this.dispatcher = new Dispatcher();
     }
 
+    register(eventkey, context, handler) {
+        let token = this.dispatcher.register(handler.bind(context));
+    }
+
     dispatch(eventKey, ...args) {
-        this.dispatcher.dispatch(eventKey, args);
+        this.dispatcher.dispatch({
+            eventKey,
+            args
+        });
         this.emit('dispatch', eventKey, args);
     }
 }

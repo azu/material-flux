@@ -8,7 +8,7 @@ class UserStore extends Store {
         this.state = {
             userData: null
         };
-        flux.register(keys.doSomething, this.onHandler);
+        this.register(keys.doSomething, this.onHandler);
     }
 
     onHandler(data) {
