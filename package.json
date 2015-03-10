@@ -2,22 +2,30 @@
   "name": "material-flux",
   "version": "1.0.0",
   "description": "no magical flux implementation.",
-  "main": "lib/material-flux.js",
-  "files": ["lib"],
+  "main": "index.js",
+  "files": [
+    "lib"
+  ],
   "directories": {
     "example": "examples"
   },
   "dependencies": {
+    "flux": "^2.0.1",
     "object-assign": "^2.0.0",
     "weak-map": "^1.0.5"
   },
   "devDependencies": {
-    "babel": "^4.7.3"
+    "babel": "^4.7.3",
+    "espower-babel": "^1.3.0",
+    "espower-loader": "^0.10.0",
+    "intelli-espower-loader": "^0.6.0",
+    "mocha": "^2.2.1",
+    "power-assert": "^0.10.2"
   },
   "scripts": {
     "build": "babel src --out-dir lib --source-maps",
     "watch": "babel src --out-dir lib --watch --source-maps",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha"
   },
   "repository": {
     "type": "git",
