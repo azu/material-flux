@@ -15,13 +15,5 @@ class MaterialStore extends EventEmitter {
         this.state = assign({}, this.state, newState);
         this.emit('change');
     }
-
-    /**
-     * register Action's method(map key) to Store's handler(map value)
-     * @param {WeakMap} map
-     */
-    registerMap(map) {
-        this.eventHandelrMap = map;
-    }
 }
 export default MaterialStore;

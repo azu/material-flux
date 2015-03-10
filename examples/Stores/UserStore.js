@@ -1,17 +1,14 @@
 // LICENSE : MIT
 "use strict";
+import {keys} from "../Actions/UserAction.js"
 import {Store} from "material-flux"
-export default class UserStore extends Store {
+export default
+class UserStore extends Store {
     constructor(flux) {
-        // methodMap manage correspondence relationship between Action's method and Store's handler.
-        var methodMap = new WeakMap();
-        var action = flux.userAction;// `flux.userAction` is the instance of `UserAction` class.
-        methodMap.set(action.doSomething, this.onHandler);
-        this.registerMap(methodMap);
-
         this.state = {
             userData: null
         };
+        flux.register(keys.doSomething, this.onHandler);
     }
 
     onHandler(data) {
@@ -23,6 +20,6 @@ export default class UserStore extends Store {
 
     // just getter method
     getUserData() {
-        return this.state.userDate;
+        return this.state.userData;
     }
 }
