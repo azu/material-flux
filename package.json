@@ -8,7 +8,8 @@
     "lib"
   ],
   "directories": {
-    "example": "examples"
+    "example": "examples",
+    "test": "test"
   },
   "dependencies": {
     "flux": "^2.0.1",
