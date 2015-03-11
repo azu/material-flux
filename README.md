@@ -60,11 +60,21 @@ export default class UserStore extends Store {
 }
 ```
 
+#### Store#onChange(listener)
+
+Adds a listener to the end of the listeners array for the "change" event. 
+
+- `listener` is a `function`.
+
 #### Store#setState(object)
 
-Update `this.state` and dispatch change.
+Update `this.state` and emit "change" event.
 
 - `object` is any object.
+
+#### Store#removeAllChangeListeners()
+
+Removes all "change" listeners.
 
 ### Flux
 
@@ -82,7 +92,7 @@ export default class UserFlux extends Flux {
     }
 }
 ```
-b
+
 ### View(Component)
 
 How to connect to View like React?
@@ -106,10 +116,24 @@ import React from 'react';
 export default class AppComponent extends React.Component {
     constructor(props) {
         super(props);
-        var { flux } = props;
+        this.userStore = this.props.flux.userStore;
         this.state = {
-            userData: flux.userStore.getUserData()
+            userData: this.userStore.getUserData()
         };
+    }
+
+    _onChange() {
+        this.setState({
+            userData: this.userStore.getUserData()
+        });
+    }
+
+    componentDidMount() {
+        this.userStore.onChange(this._onChange.bind(this));
+    }
+
+    componentWillUnmount() {
+        this.userStore.removeAllChangeListeners();
     }
 
     onClick(event) {
@@ -119,12 +143,11 @@ export default class AppComponent extends React.Component {
 
     render() {
         return (
-            <div onClick={this.onClick}>
+            <div onClick={this.onClick.bind(this)}>
                 userData: {this.state.userData}
             </div>
         );
     }
-}
 ```
 
 ## Contributing
