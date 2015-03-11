@@ -1,19 +1,24 @@
 // LICENSE : MIT
 "use strict";
 import { Dispatcher } from 'flux';
+import {EventEmitter} from 'events';
+import Store from './material-store.js';
+
 export default
-class Flux {
+class Flux extends EventEmitter {
     constructor() {
         this.dispatcher = new Dispatcher();
     }
 
     _registerStore(store) {
         if (process.env.NODE_ENV !== 'production') {
-            console.warn(
-                `The store'${store} is not instance of material-store.\n`
-                + `import {Store} from "material-flux"`
-                + `class UserStore extends Store{ ... }`
-            );
+            if (!(store instanceof Store)) {
+                console.warn(
+                    `The store'${store} is not instance of material-store.\n`
+                    + `import {Store} from "material-flux"`
+                    + `class UserStore extends Store{ ... }`
+                );
+            }
         }
         let token = this.dispatcher.register(store.handler.bind(store));
         store._waitFor = this.waitFor.bind(this);

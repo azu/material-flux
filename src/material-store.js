@@ -1,7 +1,6 @@
 // LICENSE : MIT
 "use strict";
 import {EventEmitter} from 'events';
-import assign from 'object-assign';
 class MaterialStore extends EventEmitter {
     constructor(flux) {
         if (process.env.NODE_ENV !== 'production') {
@@ -17,21 +16,25 @@ class MaterialStore extends EventEmitter {
     }
 
 
-    register(eventkey, handler) {
+    register(eventKey, handler) {
         if (typeof handler !== 'function') {
             return;
         }
-        this._handlers[eventkey] = handler.bind(this);
+        this._handlers[eventKey] = handler.bind(this);
         this.flux._registerStore(this);
     }
 
+    /**
+     * This handler is dispatched with payload by flux module.
+     * @param {object} payload the payload has eventKey and passing arguments.
+     */
     handler(payload) {
         let {
             args,
             eventKey
             } = payload;
-        if (this.hasOwnProperty(eventKey) && typeof this[eventKey] === "function") {
-            var handler = this[eventKey];
+        if (typeof this._handlers[eventKey] === "function") {
+            var handler = this._handlers[eventKey];
             handler.apply(this, args);
         }
     }
