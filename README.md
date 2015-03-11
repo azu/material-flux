@@ -19,49 +19,43 @@ material-flux is consist of `Action`, `Store` and `Flux`.
 
 ```js
 import {Action} from "material-flux"
+export var keys = {
+    "doSomething": "doSomething"
+};
 export default class UserAction extends Action {
-    doSomething(data) {
+    [keys.doSomething](data) {
         // pass the `data` to Store's `onHandler`
         // call `onHandler(data);`
-        return data;
+        this.dispatch(keys.doSomething, data);
     }
 }
 ```
 
-You can call Action following that:
-
-```js
-// it's instance is proxy(instance).
-var userAction = new UserAction();
-var userData = "some data";
-userAction.doSomething(userData);
-```
+When you call action, dispatch store's handler.
 
 ### Store
 
 ```js
+import {keys} from "./UserAction.js"
 import {Store} from "material-flux"
 export default class UserStore extends Store {
     constructor(flux) {
-        // methodMap manage correspondence relationship between Action's method and Store's handler.
-        var methodMap = new WeakMap();
-        var action = flux.userAction;// `flux.userAction` is the instance of `UserAction` class. 
-        methodMap.set(action.doSomething, this.onHandler);
-        this.registerMap(methodMap);
-        
         this.state = {
-            userData : null
+            userData: null
         };
+        flux.register(keys.doSomething, this.onHandler);
     }
-    onHandler(data){
-      // data is come from Action
-      this.setState({
-        userData : data
-      });
+
+    onHandler(data) {
+        // data is come from Action
+        this.setState({
+            userData: data
+        });
     }
+
     // just getter method
-    getUserData(){
-        return this.state.userDate;
+    getUserData() {
+        return this.state.userData;
     }
 }
 ```
@@ -81,16 +75,14 @@ How to connect Action and Store?
 import UserAction from "./UserAction.js"
 import UserStore from "./UserStore.js"
 import {Flux} from 'material-flux';
-
 export default class UserFlux extends Flux {
     constructor() {
-        this.userAction = new UserAction();
-        // TODO: dependent the order?
+        this.userAction = new UserAction(this);
         this.userStore = new UserStore(this);
     }
 }
 ```
-
+b
 ### View(Component)
 
 How to connect to View like React?

@@ -6,7 +6,7 @@ import {Flux} from 'material-flux';
 
 export default class UserFlux extends Flux {
     constructor() {
-        this.userAction = new UserAction();
+        this.userAction = new UserAction(this);
         this.userStore = new UserStore(this);
     }
 }

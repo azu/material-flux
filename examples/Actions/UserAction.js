@@ -1,10 +1,13 @@
 // LICENSE : MIT
 "use strict";
 import {Action} from "material-flux"
+export var keys = {
+    "doSomething": "doSomething"
+};
 export default class UserAction extends Action {
-    doSomething(data) {
+    [keys.doSomething](data) {
         // pass the `data` to Store's `onHandler`
         // call `onHandler(data);`
-        return data;
+        this.dispatch(keys.doSomething,data);
     }
 }
