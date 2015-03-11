@@ -7,8 +7,17 @@ class Flux {
         this.dispatcher = new Dispatcher();
     }
 
-    register(eventkey, context, handler) {
-        let token = this.dispatcher.register(handler.bind(context));
+    _registerStore(store) {
+        if (process.env.NODE_ENV !== 'production') {
+            console.warn(
+                `The store'${store} is not instance of material-store.\n`
+                + `import {Store} from "material-flux"`
+                + `class UserStore extends Store{ ... }`
+            );
+        }
+        let token = this.dispatcher.register(store.handler.bind(store));
+        store._waitFor = this.waitFor.bind(this);
+        store._token = token;
     }
 
     dispatch(eventKey, ...args) {
@@ -17,5 +26,18 @@ class Flux {
             args
         });
         this.emit('dispatch', eventKey, args);
+    }
+
+    waitFor(tokensOrStores) {
+        if (!Array.isArray(tokensOrStores)) {
+            tokensOrStores = [tokensOrStores];
+        }
+        let ensureIsToken = tokenOrStore => {
+            return tokenOrStore instanceof Store
+                ? tokenOrStore._token
+                : tokenOrStore;
+        };
+        let tokens = tokensOrStores.map(ensureIsToken);
+        this.dispatcher.waitFor(tokens);
     }
 }

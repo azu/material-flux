@@ -4,13 +4,18 @@ import {EventEmitter} from 'events';
 import assign from 'object-assign';
 class MaterialStore extends EventEmitter {
     constructor(flux) {
-        this.state = undefined;
         this.flux = flux;
+        this.state = undefined;
+        this._handlers = {};
     }
 
 
     register(eventkey, handler) {
-        this.flux.register(eventKey, this, handler);
+        if (typeof handler !== 'function') {
+            return;
+        }
+        this._handlers[eventkey] = handler.bind(this);
+        this.flux._registerStore(this);
     }
 
     handler(payload) {
@@ -22,6 +27,10 @@ class MaterialStore extends EventEmitter {
             var handler = this[eventKey];
             handler.apply(this, args);
         }
+    }
+    waitFor(tokensOrStores) {
+        // _waitFor come from flux module.
+        this._waitFor(tokensOrStores);
     }
 
     setState(newState) {
