@@ -4,6 +4,7 @@
   "description": "no magical flux implementation.",
   "main": "index.js",
   "files": [
+    "index.js",
     "lib"
   ],
   "directories": {
