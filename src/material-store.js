@@ -4,6 +4,13 @@ import {EventEmitter} from 'events';
 import assign from 'object-assign';
 class MaterialStore extends EventEmitter {
     constructor(flux) {
+        if (process.env.NODE_ENV !== 'production') {
+            if (typeof flux === "undefined") {
+                console.trace(
+                    `Constructor arguments is missing.`
+                );
+            }
+        }
         this.flux = flux;
         this.state = undefined;
         this._handlers = {};
@@ -28,6 +35,7 @@ class MaterialStore extends EventEmitter {
             handler.apply(this, args);
         }
     }
+
     waitFor(tokensOrStores) {
         // _waitFor come from flux module.
         this._waitFor(tokensOrStores);

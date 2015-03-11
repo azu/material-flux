@@ -6,20 +6,15 @@ var Store = require("../").Store;
 var Action = require("../").Action;
 class UserStore extends Store {
     constructor(flux) {
-
+        super(flux)
     }
 }
 class UserAction extends Action {
-
 }
 class UserFlux extends Flux {
     constructor() {
-        this.action = new Action();
-        this.store = new UserStore();
-        var methodMap = new WeakMap();
-        var action = flux.userAction;// `flux.userAction` is the instance of `UserAction` class.
-        methodMap.set(action.doSomething, store.onHandler);
-        flux.registerMap(methodMap);
+        this.action = new UserAction(this);
+        this.store = new UserStore(this);
     }
 }
 
