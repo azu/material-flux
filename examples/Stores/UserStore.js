@@ -5,6 +5,7 @@ import {Store} from "material-flux"
 export default
 class UserStore extends Store {
     constructor(flux) {
+        super(flux);
         this.state = {
             userData: null
         };
