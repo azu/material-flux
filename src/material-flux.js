@@ -30,7 +30,7 @@ class Flux extends EventEmitter {
             eventKey,
             args
         });
-        this.emit('dispatch', eventKey, args);
+        this.emit('dispatch', {eventKey, args});
     }
 
     waitFor(tokensOrStores) {

@@ -12,8 +12,7 @@
   },
   "dependencies": {
     "flux": "^2.0.1",
-    "object-assign": "^2.0.0",
-    "weak-map": "^1.0.5"
+    "object-assign": "^2.0.0"
   },
   "devDependencies": {
     "babel": "^4.7.3",
