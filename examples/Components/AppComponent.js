@@ -18,11 +18,11 @@ class AppComponent extends React.Component {
     }
 
     componentDidMount() {
-        this.userStore.on("change", this._onChange.bind(this));
+        this.userStore.onChange(this._onChange.bind(this));
     }
 
     componentWillUnmount() {
-
+        this.userStore.removeAllChangeListeners();
     }
 
     onClick(event) {

@@ -47,4 +47,22 @@ describe("material-store-test", function () {
             flux.dispatch(eventKey, data);
         });
     });
+    describe("#removeAllChangeListeners", function () {
+        it("should remove all change event handler", function (done) {
+            var flux = new Flux();
+            var store = new UserStore(flux);
+            var data = {"key": "value"};
+            var chaneEventCalled = false;
+            store.onChange(function () {
+                chaneEventCalled = true;
+            });
+            flux.on("dispatch", function () {
+                assert(!chaneEventCalled);
+                done();
+            });
+            // remove "change" events
+            store.removeAllChangeListeners();
+            flux.dispatch(eventKey, data);
+        });
+    });
 });
