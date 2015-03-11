@@ -1,13 +1,28 @@
 // LICENSE : MIT
 "use strict";
-import React from 'react';
-export default class AppComponent extends React.Component {
+import React from 'react'
+export default
+class AppComponent extends React.Component {
     constructor(props) {
         super(props);
-        var { flux } = props;
+        this.userStore = this.props.flux.userStore;
         this.state = {
-            userData: flux.userStore.getUserData()
+            userData: this.userStore.getUserData()
         };
+    }
+
+    _onChange() {
+        this.setState({
+            userData: this.userStore.getUserData()
+        });
+    }
+
+    componentDidMount() {
+        this.userStore.on("change", this._onChange.bind(this));
+    }
+
+    componentWillUnmount() {
+
     }
 
     onClick(event) {
@@ -17,7 +32,7 @@ export default class AppComponent extends React.Component {
 
     render() {
         return (
-            <div onClick={this.onClick}>
+            <div onClick={this.onClick.bind(this)}>
                 userData: {this.state.userData}
             </div>
         );
