@@ -21,12 +21,25 @@ class UserStore extends Store {
     }
 }
 describe("material-store-test", function () {
-    describe("store", function () {
+    describe("store's handler", function () {
         it("should set user data", function (done) {
             var flux = new Flux();
             var store = new UserStore(flux);
             var data = {"key": "value"};
             flux.on("dispatch", function () {
+                var actualData = store.getUserData();
+                assert.deepEqual(actualData, data);
+                done();
+            });
+            flux.dispatch(eventKey, data);
+        });
+    });
+    describe("#onChane", function (done) {
+        it("should called when emit change event", function (done) {
+            var flux = new Flux();
+            var store = new UserStore(flux);
+            var data = {"key": "value"};
+            store.onChange(function () {
                 var actualData = store.getUserData();
                 assert.deepEqual(actualData, data);
                 done();

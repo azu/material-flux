@@ -40,6 +40,10 @@ class MaterialStore extends EventEmitter {
         }
     }
 
+    onChange(callback){
+        this.on("change", callback);
+    }
+
     waitFor(tokensOrStores) {
         // _waitFor come from flux module.
         this._waitFor(tokensOrStores);
