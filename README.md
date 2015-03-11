@@ -39,24 +39,25 @@ When you call action, dispatch store's handler.
 import {keys} from "./UserAction.js"
 import {Store} from "material-flux"
 export default class UserStore extends Store {
-    constructor(flux) {
-        this.state = {
-            userData: null
-        };
-        flux.register(keys.doSomething, this.onHandler);
-    }
+   constructor(flux) {
+       super(flux);
+       this.state = {
+           userData: null
+       };
+       this.register(keys.doSomething, this.onHandler);
+   }
 
-    onHandler(data) {
-        // data is come from Action
-        this.setState({
-            userData: data
-        });
-    }
+   // data is come from Action
+   onHandler(data) {
+       this.setState({
+           userData: data
+       });
+   }
 
-    // just getter method
-    getUserData() {
-        return this.state.userData;
-    }
+   // just getter method
+   getUserData() {
+       return this.state.userData;
+   }
 }
 ```
 
