@@ -1,6 +1,7 @@
 // LICENSE : MIT
 "use strict";
-import {EventEmitter} from 'events';
+import {EventEmitter} from "events";
+import objectAssign from "object-assign";
 class MaterialStore extends EventEmitter {
     constructor(flux) {
         if (process.env.NODE_ENV !== 'production') {
@@ -49,7 +50,7 @@ class MaterialStore extends EventEmitter {
             this.state = {};
         }
 
-        this.state = assign({}, this.state, newState);
+        this.state = objectAssign({}, this.state, newState);
         this.emit('change');
     }
 }
