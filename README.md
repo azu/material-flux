@@ -15,6 +15,17 @@ Imaginary flux implementation.
 
 material-flux is consist of `Action`, `Store` and `Flux`.
 
+## Flux Architecture
+
+User action -> `Action` -> `Flux` dispatch -> `Store` received dispatch
+-> Store dispatch `"change"` event -> View received the "change". -> update view.
+
+- `Flux` provide `dispatch` function to `Action`s.
+- `Flux` register store for dispatched event.
+- `Action` dispatch event.
+- `Store` received dispatched event with data.
+- `Store` dispatch "change" event when update state in the store.
+
 ### Action
 
 ```js
