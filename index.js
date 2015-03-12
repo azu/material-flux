@@ -3,5 +3,5 @@
 module.exports = {
     Store: require("./lib/material-store"),
     Action: require("./lib/material-action"),
-    Flux: require("./lib/material-flux")
+    Context: require("./lib/material-flux")
 };

@@ -2,15 +2,14 @@
 "use strict";
 export default
 class Action {
-    // a child has to call `super()`
-    constructor(flux) {
+    constructor(context) {
         if (process.env.NODE_ENV !== 'production') {
-            require("assert")(typeof flux !== "undefined",
+            require("assert")(typeof context !== "undefined",
                 `Constructor arguments is undefined.
-                Please \`new ${this.constructor.name}(flux)\`
+                Please \`new ${this.constructor.name}(context)\`
                 `
             );
         }
-        this.dispatch = flux.dispatch.bind(flux);
+        this.dispatch = context.dispatch.bind(context);
     }
 }

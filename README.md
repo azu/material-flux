@@ -15,15 +15,15 @@ Imaginary flux implementation.
 
 ## Usage
 
-material-flux is consist of `Action`, `Store` and `Flux`.
+material-flux is consist of `Action`, `Store` and `Context`.
 
 ## Flux Architecture
 
-User action -> `Action` -> `Flux` dispatch -> `Store` received dispatch
+User action -> `Action` -> `Context` dispatch -> `Store` received dispatch
 -> Store dispatch `"change"` event -> View received the "change". -> update view.
 
-- `Flux` provide `dispatch` function to `Action`s.
-- `Flux` register store for dispatched event.
+- `Context` provide `dispatch` function to `Action`s.
+- `Context` register store for dispatched event.
 - `Action` dispatch event.
 - `Store` received dispatched event with data.
 - `Store` dispatch "change" event when update state in the store.
@@ -52,8 +52,8 @@ When you call action, dispatch store's handler.
 import {keys} from "./UserAction.js"
 import {Store} from "material-flux"
 export default class UserStore extends Store {
-   constructor(flux) {
-       super(flux);
+   constructor(context) {
+       super(context);
        this.state = {
            userData: null
        };
@@ -90,16 +90,16 @@ Update `this.state` and emit "change" event.
 
 Removes all "change" listeners.
 
-### Flux
+### Context
 
 How to connect Action and Store?
-=> Create connection object. it is called `Flux` in this context.
+=> Create connection object. it is called `Context` in this context.
 
 ```js
 import UserAction from "./UserAction.js"
 import UserStore from "./UserStore.js"
-import {Flux} from 'material-flux';
-export default class UserFlux extends Flux {
+import {Context} from 'material-flux';
+export default class UserContext extends Context {
     constructor() {
         this.userAction = new UserAction(this);
         this.userStore = new UserStore(this);
@@ -110,15 +110,15 @@ export default class UserFlux extends Flux {
 ### View(Component)
 
 How to connect to View like React?
-=> Pass an instance of `Flux` to React's Component.
+=> Pass an instance of `Context` to React's Component.
 
 ```js
 import React from 'react';
-import UserFlux from './UserFlux.js';
+import UserContext from './UserContext.js';
 import App from './AppComponent.jsx';
-var flux = new UserFlux();
+var context = new UserContext();
 React.render(
-    React.createElement(App, { flux }),
+    React.createElement(App, { context }),
     document.getElementById('main')
 );
 ```
@@ -130,7 +130,7 @@ import React from 'react';
 export default class AppComponent extends React.Component {
     constructor(props) {
         super(props);
-        this.userStore = this.props.flux.userStore;
+        this.userStore = this.props.context.userStore;
         this.state = {
             userData: this.userStore.getUserData()
         };
@@ -151,8 +151,8 @@ export default class AppComponent extends React.Component {
     }
 
     onClick(event) {
-        var { flux } = this.props;
-        flux.userAction.doSomething("clicked");
+        var { context } = this.props;
+        context.userAction.doSomething("clicked");
     }
 
     render() {

@@ -5,7 +5,7 @@ import {EventEmitter} from 'events';
 import Store from './material-store.js';
 
 export default
-class Flux extends EventEmitter {
+class Context extends EventEmitter {
     constructor() {
         this.dispatcher = new Dispatcher();
     }

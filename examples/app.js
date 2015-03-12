@@ -1,10 +1,10 @@
 // LICENSE : MIT
 "use strict";
 import React from 'react';
-import UserFlux from './UserContext.js';
+import UserContext from './UserContext.js';
 import App from './Components/AppComponent.js';
-var flux = new UserFlux();
+var context = new UserContext();
 React.render(
-    React.createElement(App, {flux}),
+    React.createElement(App, {context}),
     document.body
 );

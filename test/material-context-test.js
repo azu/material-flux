@@ -1,7 +1,7 @@
 // LICENSE : MIT
 "use strict";
 var assert = require("power-assert");
-var Flux = require("../").Flux;
+var Context = require("../").Context;
 var Store = require("../").Store;
 var Action = require("../").Action;
 
@@ -27,7 +27,7 @@ class UserStore extends Store {
         assert.equal(data, expectedData);
     }
 }
-class UserFlux extends Flux {
+class UserContext extends Context {
     constructor() {
         super();
         this.userAction = new UserAction(this);
@@ -37,9 +37,9 @@ class UserFlux extends Flux {
 
 describe("material-flux-test", function () {
     it("has store", function () {
-        var flux = new UserFlux();
-        flux.userAction.doSomething(expectedData);
-        assert(flux.userAction.doSomething._isCalled);
-        assert(flux.userStore.onHandler._isCalled);
+        var context = new UserContext();
+        context.userAction.doSomething(expectedData);
+        assert(context.userAction.doSomething._isCalled);
+        assert(context.userStore.onHandler._isCalled);
     });
 });

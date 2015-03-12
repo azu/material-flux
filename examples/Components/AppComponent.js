@@ -5,7 +5,7 @@ export default
 class AppComponent extends React.Component {
     constructor(props) {
         super(props);
-        this.userStore = this.props.flux.userStore;
+        this.userStore = this.props.context.userStore;
         this.state = {
             userData: this.userStore.getUserData()
         };
@@ -26,15 +26,15 @@ class AppComponent extends React.Component {
     }
 
     onClick(event) {
-        var { flux } = this.props;
-        flux.userAction.doSomething("clicked");
+        var { context } = this.props;
+        context.userAction.doSomething("clicked");
     }
 
     render() {
         return (
-            <div onClick={this.onClick.bind(this)}>
+            <button onClick={this.onClick.bind(this)}>
                 userData: {this.state.userData}
-            </div>
+            </button>
         );
     }
 }

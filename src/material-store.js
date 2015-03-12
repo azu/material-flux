@@ -3,15 +3,15 @@
 import {EventEmitter} from "events";
 import objectAssign from "object-assign";
 class MaterialStore extends EventEmitter {
-    constructor(flux) {
+    constructor(context) {
         if (process.env.NODE_ENV !== 'production') {
-            require("assert")(typeof flux !== "undefined",
+            require("assert")(typeof context !== "undefined",
                 `Constructor arguments is undefined.
-                Please \`new ${this.constructor.name}(flux)\`
+                Please \`new ${this.constructor.name}(context)\`
                 `
             )
         }
-        this.flux = flux;
+        this.context = context;
         this.state = undefined;
         this._handlers = {};
     }
@@ -19,24 +19,22 @@ class MaterialStore extends EventEmitter {
 
     register(eventKey, handler) {
         if (process.env.NODE_ENV !== 'production') {
-            if (typeof this.flux === "undefined") {
-                require("assert")(typeof flux !== "undefined",
-                    `Failed register event handler to store.
-                    ${this.constructor.name} has not flux.
-                    Please \`new ${this.constructor.name}(flux)\`
+            require("assert")(typeof this.context !== "undefined",
+                `Failed register event handler to store.
+                    ${this.constructor.name} has not context.
+                    Please \`new ${this.constructor.name}(context)\`
                     `
-                )
-            }
+            )
         }
         if (typeof handler !== 'function') {
             return;
         }
         this._handlers[eventKey] = handler.bind(this);
-        this.flux._registerStore(this);
+        this.context._registerStore(this);
     }
 
     /**
-     * This handler is dispatched with payload by flux module.
+     * This handler is dispatched with payload by context module.
      * @param {object} payload the payload has eventKey and passing arguments.
      */
     handler(payload) {
@@ -66,7 +64,7 @@ class MaterialStore extends EventEmitter {
     }
 
     waitFor(tokensOrStores) {
-        // _waitFor come from flux module.
+        // _waitFor come from context module.
         this._waitFor(tokensOrStores);
     }
 
