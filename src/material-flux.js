@@ -12,13 +12,11 @@ class Flux extends EventEmitter {
 
     _registerStore(store) {
         if (process.env.NODE_ENV !== 'production') {
-            if (!(store instanceof Store)) {
-                console.warn(
-                    `The store'${store} is not instance of material-store.\n`
-                    + `import {Store} from "material-flux"`
-                    + `class UserStore extends Store{ ... }`
-                );
-            }
+            require("assert")(store instanceof Store,
+                `The store'${store} is not instance of material-store.\n`
+                + `import {Store} from "material-flux"`
+                + `class UserStore extends Store{ ... }`
+            );
         }
         let token = this.dispatcher.register(store.handler.bind(store));
         store._waitFor = this.waitFor.bind(this);

@@ -5,11 +5,11 @@ import objectAssign from "object-assign";
 class MaterialStore extends EventEmitter {
     constructor(flux) {
         if (process.env.NODE_ENV !== 'production') {
-            if (typeof flux === "undefined") {
-                console.trace(
-                    `Constructor arguments is missing.`
-                );
-            }
+            require("assert")(typeof flux !== "undefined",
+                `Constructor arguments is undefined.
+                Please \`new ${this.constructor.name}(flux)\`
+                `
+            )
         }
         this.flux = flux;
         this.state = undefined;
@@ -18,6 +18,16 @@ class MaterialStore extends EventEmitter {
 
 
     register(eventKey, handler) {
+        if (process.env.NODE_ENV !== 'production') {
+            if (typeof this.flux === "undefined") {
+                require("assert")(typeof flux !== "undefined",
+                    `Failed register event handler to store.
+                    ${this.constructor.name} has not flux.
+                    Please \`new ${this.constructor.name}(flux)\`
+                    `
+                )
+            }
+        }
         if (typeof handler !== 'function') {
             return;
         }
