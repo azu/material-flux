@@ -2,14 +2,14 @@
 
 Imaginary flux implementation.
 
-- less trick
-- debuggable
+- Less trick
+- Debuggable
 - ECMAScript6 compatible
 - Class syntax
 
 ## Installation
 
-- [ ] Describe the installation process
+    npm install material-flux
 
 ## Usage
 
