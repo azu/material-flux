@@ -1,6 +1,6 @@
 # material-flux [![Build Status](https://travis-ci.org/azu/material-flux.svg?branch=master)](https://travis-ci.org/azu/material-flux)
 
-Imaginary flux implementation.
+No magic flux implementation library.
 
 - Less trick
     - No method swizzle, No overwrite function
