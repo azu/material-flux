@@ -29,7 +29,6 @@ export default UserAction;
 
 ```js
 import {keys} from "./UserAction.js"
-import {Store} from "material-flux"
 function UserStore({setState, register}){
     var state = {
         userData: null
