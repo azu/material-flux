@@ -1,7 +1,7 @@
 {
   "name": "material-flux",
   "version": "1.0.0",
-  "description": "no magical flux implementation.",
+  "description": "No magical flux implementation.",
   "main": "index.js",
   "files": [
     "index.js",
@@ -26,7 +26,8 @@
   "scripts": {
     "build": "babel src --out-dir lib --source-maps",
     "watch": "babel src --out-dir lib --watch --source-maps",
-    "test": "mocha"
+    "test": "mocha",
+    "prepublish": "npm run build"
   },
   "repository": {
     "type": "git",
@@ -34,7 +35,8 @@
   },
   "keywords": [
     "flux",
-    "react"
+    "react",
+    "es6"
   ],
   "author": "azu",
   "license": "MIT",

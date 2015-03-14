@@ -36,6 +36,7 @@ export var keys = {
     "doSomething": "doSomething"
 };
 export default class UserAction extends Action {
+    // or doSomething(data){ ... } 
     [keys.doSomething](data) {
         // pass the `data` to Store's `onHandler`
         // call `onHandler(data);`
