@@ -1,5 +1,7 @@
 # Alternative OOP Thought
 
+Write parts as pure JavaScript object!
+
 ## Inspiration
 
 - [Components as ES6 classes · Issue #3400 · facebook/react](https://github.com/facebook/react/issues/3400 "Components as ES6 classes · Issue #3400 · facebook/react")
