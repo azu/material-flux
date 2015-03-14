@@ -8,6 +8,7 @@ export default
 class Context extends EventEmitter {
     constructor() {
         this.dispatcher = new Dispatcher();
+        this._stores = [];
     }
 
     _registerStore(store) {
@@ -18,9 +19,15 @@ class Context extends EventEmitter {
                 + `class UserStore extends Store{ ... }`
             );
         }
+        // guard for duplicated register
+        if(this._stores.indexOf(store) >= 0){
+            return;
+        }
+
         let token = this.dispatcher.register(store.handler.bind(store));
         store._waitFor = this.waitFor.bind(this);
         store._token = token;
+        this._stores.push(store);
     }
 
     dispatch(eventKey, ...args) {
