@@ -4,7 +4,7 @@ No magic flux implementation library.
 
 - Less trick
     - No method swizzle, No overwrite function
-    - IDE Readable API
+    - IDE Readable API(Machine Readable API)
 - Debuggable
 - ECMAScript6 compatible
 - Class syntax
