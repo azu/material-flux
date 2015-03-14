@@ -180,4 +180,4 @@ MIT
 
 ## Inspiration and thanks
 
-- [Flummox](https://github.com/acdlite/flummox/tree/63e1f13f26724aa1f97da449ea61a3abcbf45360 "Flummox")
+- [Flummox](https://github.com/acdlite/flummox/ "Flummox")
