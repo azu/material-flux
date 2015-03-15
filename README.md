@@ -81,15 +81,22 @@ Adds a listener to the end of the listeners array for the "change" event.
 
 - `listener` is a `function`.
 
+#### Store#removeChangeListener(listener)
+
+Removes a "change" listener.
+
+- `listener` is a `function`.
+
+#### Store#removeAllChangeListeners()
+
+Removes all "change" listeners.
+
 #### Store#setState(object)
 
 Update `this.state` and emit "change" event.
 
 - `object` is any object.
 
-#### Store#removeAllChangeListeners()
-
-Removes all "change" listeners.
 
 ### Context
 
