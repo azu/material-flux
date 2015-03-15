@@ -181,3 +181,4 @@ MIT
 ## Inspiration and thanks
 
 - [Flummox](https://github.com/acdlite/flummox/ "Flummox")
+    - Andrew Clark <acdlite@me.com>
