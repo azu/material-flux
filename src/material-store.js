@@ -49,11 +49,19 @@ class MaterialStore extends EventEmitter {
     }
 
     /**
-     * add handler to "change" event.
+     * add listener to "change" event.
      * @param {Function} callback event handler
      */
     onChange(callback) {
         this.on("change", callback);
+    }
+
+    /**
+     * remove "change" listener
+     * @param {Function} callback event handler
+     */
+    removeChangeListener(callback) {
+        this.removeListener("change", callback);
     }
 
     /**
