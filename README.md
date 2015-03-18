@@ -33,6 +33,8 @@ User action -> `Action` -> `Context` dispatch -> `Store` received dispatch
 ```js
 import {Action} from "material-flux"
 export var keys = {
+    // "any key" : "any value"
+    // it's a constants
     "doSomething": "doSomething"
 };
 export default class UserAction extends Action {

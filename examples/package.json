@@ -11,6 +11,7 @@
   "author": "azu",
   "license": "MIT",
   "dependencies": {
+    "es6-symbol": "^2.0.1",
     "material-flux": "file:..",
     "react": "^0.13"
   },

@@ -1,8 +1,12 @@
 // LICENSE : MIT
 "use strict";
-var Action = require("material-flux").Action;
+import { Action } from "material-flux";
+import Symbol from "es6-symbol";
+
 export var keys = {
-    "doSomething": "doSomething"
+    // "any key" : "any value"
+    // it's a constants
+    "doSomething": Symbol("unique value for doSomething")
 };
 class UserAction extends Action {
     doSomething(data) {
