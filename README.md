@@ -175,10 +175,11 @@ export default class AppComponent extends React.Component {
 }
 ```
 
-## more examples
+## Examples
 
 See 
 
+- [examples/](examples/)
 - [azu/flux-comparison at material-flux](https://github.com/azu/flux-comparison/tree/material-flux "azu/flux-comparison at material-flux")
 
 ## Contributing
