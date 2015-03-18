@@ -38,8 +38,7 @@ export const keys = {
     "doSomething": "unique value"
 };
 export default class UserAction extends Action {
-    // or doSomething(data){ ... } 
-    [keys.doSomething](data) {
+    doSomething(data) {
         // pass the `data` to Store's `onHandler`
         // call `onHandler(data);`
         this.dispatch(keys.doSomething, data);
