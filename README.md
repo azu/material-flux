@@ -35,7 +35,7 @@ import {Action} from "material-flux"
 // it's a like constants
 export const keys = {
     // "any key" : "any value"
-    "doSomething": "doSomething"
+    "doSomething": "unique value"
 };
 export default class UserAction extends Action {
     // or doSomething(data){ ... } 
