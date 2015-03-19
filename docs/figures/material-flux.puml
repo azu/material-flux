@@ -2,7 +2,7 @@
 
   hide footbox
   Actor User
-  User -> Action: do something action
+  User -> Action: do something
   box "material-flux"
     participant Action
     participant Context
@@ -13,5 +13,6 @@
   Context <-- Store: receive *event*
   Store -> Store: "change" event
   Store <-- View: Observe "change" event
+  View -> View: Update View
 
 @enduml
