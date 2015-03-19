@@ -22,6 +22,8 @@ material-flux is consist of `Action`, `Store` and `Context`.
 User action -> `Action` -> `Context` dispatch -> `Store` received dispatch
 -> Store dispatch `"change"` event -> View received the "change". -> update view.
 
+![flow image](docs/figures/material-flux.png)
+
 - `Context` provide `dispatch` function to `Action`s.
 - `Context` register store for dispatched event.
 - `Action` dispatch event.

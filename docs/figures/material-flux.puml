@@ -1,0 +1,17 @@
+@startuml
+
+  hide footbox
+  Actor User
+  User -> Action: do something action
+  box "material-flux"
+    participant Action
+    participant Context
+    participant Store
+  end box
+
+  Action -> Context: dispatch *event*
+  Context <-- Store: receive *event*
+  Store -> Store: "change" event
+  Store <-- View: Observe "change" event
+
+@enduml
