@@ -2,17 +2,19 @@
 
   hide footbox
   Actor User
-  User -> Action: do something
+  User -> View: Do something
+  View -> Action: Call method
   box "material-flux"
     participant Action
     participant Context
     participant Store
   end box
 
-  Action -> Context: dispatch *event*
-  Context <-- Store: receive *event*
-  Store -> Store: "change" event
+  Action -> Context: Dispatch *event*
+  Context <-- Store: Receive *event*
+  Store -> Store: Emit "change" event
   Store <-- View: Observe "change" event
   View -> View: Update View
+
 
 @enduml
