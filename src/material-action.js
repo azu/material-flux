@@ -1,7 +1,6 @@
 // LICENSE : MIT
 "use strict";
-export default
-class Action {
+export default class Action {
     constructor(context) {
         if (process.env.NODE_ENV !== 'production') {
             require("assert")(typeof context !== "undefined",

@@ -4,8 +4,7 @@ import { Dispatcher } from 'flux';
 import {EventEmitter} from 'events';
 import Store from './material-store.js';
 
-export default
-class Context extends EventEmitter {
+export default class Context extends EventEmitter {
     constructor() {
         this.dispatcher = new Dispatcher();
         this._stores = [];
@@ -20,7 +19,7 @@ class Context extends EventEmitter {
             );
         }
         // guard for duplicated register
-        if(this._stores.indexOf(store) >= 0){
+        if (this._stores.indexOf(store) >= 0) {
             return;
         }
 
