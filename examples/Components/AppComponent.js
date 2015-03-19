@@ -1,8 +1,7 @@
 // LICENSE : MIT
 "use strict";
 import React from 'react'
-export default
-class AppComponent extends React.Component {
+export default class AppComponent extends React.Component {
     constructor(props) {
         super(props);
         this.userStore = this.props.context.userStore;

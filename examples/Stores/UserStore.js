@@ -2,8 +2,7 @@
 "use strict";
 import {keys} from "../Actions/UserAction.js"
 import {Store} from "material-flux"
-export default
-class UserStore extends Store {
+export default class UserStore extends Store {
     constructor(flux) {
         super(flux);
         this.state = {
