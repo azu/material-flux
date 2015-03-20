@@ -178,10 +178,10 @@ export default class AppComponent extends React.Component {
 
 ## Examples
 
-See 
+more examples.
 
 - [examples/](examples/)
-- [material-flux](https://github.com/voronianski/flux-comparison/tree/master/material-flux "material-flux") example of [azu/flux-comparison at material-flux](https://github.com/azu/flux-comparison/tree/material-flux "azu/flux-comparison at material-flux").
+- [voronianski/flux-comparison](https://github.com/voronianski/flux-comparison "voronianski/flux-comparison") > [material-flux](https://github.com/voronianski/flux-comparison/tree/master/material-flux "material-flux")
 
 ## Contributing
 
