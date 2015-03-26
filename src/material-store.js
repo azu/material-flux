@@ -71,11 +71,20 @@ class MaterialStore extends EventEmitter {
         this.removeAllListeners("change");
     }
 
+    /**
+     * Waits for the callbacks with the specified IDs to be invoked before continuing execution
+     * of the current callback. This method should only be used by a callback in response
+     * to a dispatched payload.
+     */
     waitFor(tokensOrStores) {
         // _waitFor come from context module.
         this._waitFor(tokensOrStores);
     }
 
+    /**
+     * Update `this.state` with `newState` and notify "change" event.
+     * @param {object} newState
+     */
     setState(newState) {
         if (typeof this.state === 'undefined') {
             this.state = {};

@@ -5,8 +5,12 @@
   "main": "index.js",
   "files": [
     "index.js",
-    "lib"
+    "lib",
+    "typings/material-flux.ts"
   ],
+  "typescript": {
+    "definition": "typings/material-flux.ts"
+  },
   "directories": {
     "example": "examples",
     "test": "test"
@@ -21,12 +25,14 @@
     "espower-loader": "^0.10.0",
     "intelli-espower-loader": "^0.6.0",
     "mocha": "^2.2.1",
-    "power-assert": "^0.10.2"
+    "power-assert": "^0.10.2",
+    "typescript": "^1.4.1"
   },
   "scripts": {
     "build": "babel src --out-dir lib --source-maps",
     "watch": "babel src --out-dir lib --watch --source-maps",
-    "test": "mocha",
+    "test": "npm run test:typings && mocha",
+    "test:typings": "tsc typings/tests/material-flux-test.ts --module commonjs --noImplicitAny",
     "prepublish": "npm run build"
   },
   "repository": {
@@ -36,7 +42,8 @@
   "keywords": [
     "flux",
     "react",
-    "es6"
+    "es6",
+    "typescript"
   ],
   "author": "azu",
   "license": "MIT",

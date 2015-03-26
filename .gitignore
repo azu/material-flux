@@ -85,3 +85,5 @@ crashlytics-build.properties
 
 lib
 examples/bundle.js
+typings/*/*.js
+typings/*/*.map

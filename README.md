@@ -184,6 +184,13 @@ more examples.
 - [examples/](examples/)
 - [voronianski/flux-comparison](https://github.com/voronianski/flux-comparison "voronianski/flux-comparison") > [material-flux](https://github.com/voronianski/flux-comparison/tree/master/material-flux "material-flux")
 
+## Tests
+
+```
+npm test
+# it run mocha & npm run test:typing.
+```
+
 ## Contributing
 
 1. Fork it!
