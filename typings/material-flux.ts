@@ -3,12 +3,25 @@
 // https://github.com/azu/material-flux
 declare module 'material-flux' {
 
+    /*
+     * Specify a type in the 'TPayload' generic argument to use strongly-typed payloads, 
+     * otherwise specify 'any'
+     *
+     * Examples:
+     * class UserAction extends MaterialFlux.Action<any> {
+     *  doSomething(data:string) {
+     *      this.dispatch(keys.doSomething, data);
+     *  }
+     * }
+     */
     export class Action<TPayload> {
         constructor(context:Context);
 
         dispatch(eventKey:any, payload:TPayload):void;
     }
     export class Store {
+        private _handlers:{string: Function};
+        private store:Object;
         constructor(context:Context);
 
         /**
@@ -49,7 +62,7 @@ declare module 'material-flux' {
     }
 
     class Context {
-        public dispatcher:any;
+        private dispatcher:any;
         private _stores:Store[];
 
         dispatch(eventKey:any, ...args:any[]):void;
