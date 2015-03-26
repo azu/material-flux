@@ -52,7 +52,7 @@ declare module 'material-flux' {
         public dispatcher:any;
         private _stores:Store[];
 
-        dispatch(eventKey, ...args):void;
+        dispatch(eventKey:any, ...args:any[]):void;
 
         waitFor(tokensOrStores:string|Store):void;
     }

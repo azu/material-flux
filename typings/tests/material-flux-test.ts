@@ -1,25 +1,25 @@
 /// <reference path="../material-flux.ts" />
 import MaterialFlux = require("material-flux");
 
-var expectedData = ["data is data"];
+var expectedData = "string data";
 var keys = {
     "doSomething": "doSomething"
 };
 class UserAction extends MaterialFlux.Action<any> {
-    doSomething(data) {
+    doSomething(data:string) {
         this.dispatch(keys.doSomething, data);
     }
 }
 class UserStore extends MaterialFlux.Store {
     public state:Object;
 
-    constructor(flux) {
-        super(flux);
+    constructor(context:MaterialFlux.Context) {
+        super(context);
         this.state = {};
         this.register(keys.doSomething, this.onHandler);
     }
 
-    onHandler(data) {
+    onHandler(data:String) {
         this.setState({
             user: data
         });

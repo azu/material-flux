@@ -7,6 +7,9 @@
     "index.js",
     "lib"
   ],
+  "typescript": {
+    "definition": "typings/material-flux.ts"
+  },
   "directories": {
     "example": "examples",
     "test": "test"
