@@ -1,6 +1,6 @@
 {
   "name": "material-flux",
-  "version": "1.1.1",
+  "version": "1.2.0",
   "description": "No magical flux implementation.",
   "main": "index.js",
   "files": [
