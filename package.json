@@ -21,7 +21,8 @@
     "espower-loader": "^0.10.0",
     "intelli-espower-loader": "^0.6.0",
     "mocha": "^2.2.1",
-    "power-assert": "^0.10.2"
+    "power-assert": "^0.10.2",
+    "typescript": "^1.4.1"
   },
   "scripts": {
     "build": "babel src --out-dir lib --source-maps",

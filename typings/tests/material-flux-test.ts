@@ -11,12 +11,18 @@ class UserAction extends MaterialFlux.Action<any> {
     }
 }
 class UserStore extends MaterialFlux.Store {
+    public state:Object;
+
     constructor(flux) {
         super(flux);
+        this.state = {};
         this.register(keys.doSomething, this.onHandler);
     }
 
     onHandler(data) {
+        this.setState({
+            user: data
+        });
     }
 }
 class UserContext extends MaterialFlux.Context {
@@ -29,3 +35,6 @@ class UserContext extends MaterialFlux.Context {
         this.userStore = new UserStore(this);
     }
 }
+
+var context = new UserContext();
+context.userAction.doSomething(expectedData);
