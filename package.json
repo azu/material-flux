@@ -5,7 +5,8 @@
   "main": "index.js",
   "files": [
     "index.js",
-    "lib"
+    "lib",
+    "typings/material-flux.ts"
   ],
   "typescript": {
     "definition": "typings/material-flux.ts"
@@ -41,7 +42,8 @@
   "keywords": [
     "flux",
     "react",
-    "es6"
+    "es6",
+    "typescript"
   ],
   "author": "azu",
   "license": "MIT",
