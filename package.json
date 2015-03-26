@@ -30,7 +30,8 @@
   "scripts": {
     "build": "babel src --out-dir lib --source-maps",
     "watch": "babel src --out-dir lib --watch --source-maps",
-    "test": "mocha",
+    "test": "npm run test:typings && mocha",
+    "test:typings": "tsc typings/tests/material-flux-test.ts --module commonjs --noImplicitAny",
     "prepublish": "npm run build"
   },
   "repository": {
