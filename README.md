@@ -56,8 +56,8 @@ When you call action, dispatch store's handler.
 import {keys} from "./UserAction.js"
 import {Store} from "material-flux"
 export default class UserStore extends Store {
-   constructor(context) {
-       super(context);
+   constructor(...args) {
+       super(...args);
        this.state = {
            userData: null
        };
@@ -140,8 +140,8 @@ AppComponent:
 ```js
 import React from 'react';
 export default class AppComponent extends React.Component {
-    constructor(props) {
-        super(props);
+    constructor(...args) {
+        super(...args);
         this.userStore = this.props.context.userStore;
         this.state = {
             userData: this.userStore.getUserData()

@@ -2,8 +2,8 @@
 "use strict";
 import React from 'react'
 export default class AppComponent extends React.Component {
-    constructor(props) {
-        super(props);
+    constructor(...args) {
+        super(...args);
         this.userStore = this.props.context.userStore;
         this.state = {
             userData: this.userStore.getUserData()
