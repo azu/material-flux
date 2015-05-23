@@ -6,6 +6,7 @@ import Store from './material-store.js';
 
 export default class Context extends EventEmitter {
     constructor() {
+        super();
         this.dispatcher = new Dispatcher();
         this._stores = [];
     }

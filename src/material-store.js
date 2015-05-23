@@ -4,6 +4,7 @@ import {EventEmitter} from "events";
 import objectAssign from "object-assign";
 class MaterialStore extends EventEmitter {
     constructor(context) {
+        super();
         if (process.env.NODE_ENV !== 'production') {
             require("assert")(typeof context !== "undefined",
                 `Constructor arguments is undefined.
