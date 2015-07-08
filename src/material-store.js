@@ -22,9 +22,14 @@ class MaterialStore extends EventEmitter {
         if (process.env.NODE_ENV !== 'production') {
             require("assert")(typeof this.context !== "undefined",
                 `Failed register event handler to store.
-                    ${this.constructor.name} has not context.
-                    Please \`new ${this.constructor.name}(context)\`
-                    `
+                 "${this.constructor.name}" has not context.
+                 Please \`new ${this.constructor.name}(context)\``
+            );
+            require("assert")(typeof eventKey !== "undefined",
+                `register Error: "eventKey" is undefined.
+                Failed register event handler to store with eventKey.
+                Please register(eventKey, handler);
+                `
             )
         }
         if (typeof handler !== 'function') {
