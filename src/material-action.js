@@ -8,6 +8,11 @@ export default class Action {
                 Please \`new ${this.constructor.name}(context)\`
                 `
             );
+            require("assert")(typeof context.dispatch !== "undefined",
+                `Constructor arguments was unexpected object.
+                Please \`new ${this.constructor.name}(context)\`
+                `
+            );
         }
         this.dispatch = context.dispatch.bind(context);
     }
