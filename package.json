@@ -4,8 +4,8 @@
   "description": "No magical flux implementation.",
   "main": "lib/index.js",
   "files": [
-    "index.js",
     "lib",
+    "src",
     "typings/material-flux.ts"
   ],
   "typescript": {
