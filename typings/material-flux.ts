@@ -22,6 +22,7 @@ declare module 'material-flux' {
     export class Store {
         private _handlers:{string: Function};
         private store:Object;
+
         constructor(context:Context);
 
         /**
@@ -59,6 +60,12 @@ declare module 'material-flux' {
          * Update `this.state` with `newState` and notify "change" event.
          */
         setState(newState:Object):void;
+
+        /**
+         * force notify "change" event
+         * you should use this instead of `setState()` as force emit "change"
+         */
+        emitChange():void;
     }
 
     class Context {

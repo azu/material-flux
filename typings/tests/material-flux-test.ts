@@ -23,6 +23,7 @@ class UserStore extends MaterialFlux.Store {
         this.setState({
             user: data
         });
+        this.emitChange();
     }
 }
 class UserContext extends MaterialFlux.Context {

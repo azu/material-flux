@@ -1,9 +1,9 @@
 // LICENSE : MIT
 "use strict";
 var assert = require("power-assert");
-var Context = require("../").Context;
-var Store = require("../").Store;
-var Action = require("../").Action;
+var Context = require("../src").Context;
+var Store = require("../src").Store;
+var Action = require("../src").Action;
 
 var expectedData = ["data is data"];
 var keys = {
