@@ -1,8 +1,8 @@
 // LICENSE : MIT
 "use strict";
 var assert = require("power-assert");
-import {Store} from "../"
-import {Context} from "../"
+import {Store} from "../src/";
+import {Context} from "../src/";
 var eventKey = "event-key";
 class UserStore extends Store {
     constructor(context) {
@@ -63,6 +63,18 @@ describe("material-store-test", function () {
             // remove "change" events
             store.removeAllChangeListeners();
             context.dispatch(eventKey, data);
+        });
+    });
+    describe("emitChange", function () {
+        it("should emit 'change` event", function () {
+            var context = new Context();
+            var store = new UserStore(context);
+            let called = false;
+            store.onChange(() => {
+                called = true;
+            });
+            store.emitChange();
+            assert(called);
         });
     });
 });

@@ -102,7 +102,7 @@ class MaterialStore extends EventEmitter {
 
     /**
      * force notify "change" event
-     * if you use this instead of `setState()` as force emit "change"
+     * you should use this instead of `setState()` as force emit "change"
      */
     emitChange() {
         this.emit('change');

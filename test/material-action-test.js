@@ -1,7 +1,7 @@
 // LICENSE : MIT
 "use strict";
 var assert = require("power-assert");
-var Action = require("../").Action;
+var Action = require("../src").Action;
 var keys = {
     "doSomething": "doSomething"
 };
