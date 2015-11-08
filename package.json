@@ -2,7 +2,7 @@
   "name": "material-flux",
   "version": "1.2.3",
   "description": "No magical flux implementation.",
-  "main": "index.js",
+  "main": "lib/index.js",
   "files": [
     "index.js",
     "lib",
