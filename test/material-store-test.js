@@ -72,6 +72,18 @@ describe("material-store-test", function () {
             });
             context.dispatch(eventKey, data);
         });
+        it("should return remove function()", function () {
+            var context = new Context();
+            var store = new UserStore(context);
+            var isCalledCount = 0;
+            var remove = store.onChange(function () {
+                isCalledCount++;
+            });
+            context.dispatch(eventKey, {});
+            remove();
+            context.dispatch(eventKey, {});
+            assert.equal(isCalledCount, 1);
+        });
     });
     describe("#removeAllChangeListeners", function () {
         it("should remove all change event handler", function (done) {
