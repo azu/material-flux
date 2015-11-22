@@ -94,6 +94,10 @@ Removes a "change" listener.
 
 Removes all "change" listeners.
 
+#### Store#getState()
+
+Return state object that shallowly clone store's `state`.
+
 #### Store#setState(object)
 
 Update `this.state` and emit "change" event.

@@ -88,6 +88,14 @@ class MaterialStore extends EventEmitter {
     }
 
     /**
+     * Return state object that shallowly clone store's `state`.
+     * @return {object} shallow copied state
+     */
+    getState() {
+        return objectAssign({}, this.state);
+    }
+
+    /**
      * Update `this.state` with `newState` and notify "change" event.
      * @param {object} newState
      */
