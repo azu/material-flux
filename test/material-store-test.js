@@ -34,7 +34,33 @@ describe("material-store-test", function () {
             context.dispatch(eventKey, data);
         });
     });
-    describe("#onChane", function (done) {
+    describe("#getState", function () {
+        it("should return state object", function (done) {
+            var context = new Context();
+            var store = new UserStore(context);
+            var data = {"key": "value"};
+            context.on("dispatch", function () {
+                var state = store.getState();
+                assert.deepEqual(state, {
+                    data: data
+                });
+                done();
+            });
+            context.dispatch(eventKey, data);
+        });
+        it("should shallow copy", function (done) {
+            var context = new Context();
+            var store = new UserStore(context);
+            var data = {"key": "value"};
+            context.on("dispatch", function () {
+                var state = store.getState();
+                assert.notStrictEqual(state, store.state);
+                done();
+            });
+            context.dispatch(eventKey, data);
+        });
+    });
+    describe("#onChane", function () {
         it("should called when emit change event", function (done) {
             var context = new Context();
             var store = new UserStore(context);
