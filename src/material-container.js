@@ -3,7 +3,7 @@
 "use strict";
 import FluxStoreGroup from "./material-store-group";
 import assert from "assert";
-function enforceInterface(o) {
+function assertBaseComponent(o) {
     assert(
         o.getStores,
         'Components that use Container must implement `static getStores()`'
@@ -21,7 +21,7 @@ export default class Container {
      * @returns {React.Component}
      */
     static create(Base) {
-        enforceInterface(Base);
+        assertBaseComponent(Base);
         // define as Container class
         class ContainerComponent extends Base {
             constructor(props) {
@@ -68,7 +68,6 @@ export default class Container {
                     super.componentWillReceiveProps(nextProps, nextContext);
                 }
                 // TODO: pure options?
-
                 // Finally update the state using the new props.
                 this.setState(prevState => Base.calculateState(prevState, nextProps));
             }

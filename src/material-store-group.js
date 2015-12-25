@@ -19,6 +19,11 @@ function _getUniformDispatcher(stores) {
 }
 
 export default class FluxStoreGroup {
+    /**
+     * Create StoreGroup
+     * @param {MaterialStore[]} stores stores are instance of MaterialStore
+     * @param {Function} callback callback is called after store's
+     */
     constructor(stores, callback) {
         this._dispatcher = _getUniformDispatcher(stores);
 
