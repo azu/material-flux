@@ -57,9 +57,15 @@ class MaterialStore extends EventEmitter {
     /**
      * add listener to "change" event.
      * @param {Function} callback event handler
+     * @return {Function} removeChangeListener function
+     * @example
+     *
+     * let remove = store.onChange(() => {});
+     * remove(); // remove this onChange
      */
     onChange(callback) {
         this.on("change", callback);
+        return this.removeChangeListener.bind(this, callback);
     }
 
     /**
