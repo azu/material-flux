@@ -181,6 +181,10 @@ export default class AppComponent extends React.Component {
 }
 ```
 
+## Container
+
+If you want to Container Component, use https://github.com/azu/material-flux-container
+
 ## Examples
 
 more examples.
