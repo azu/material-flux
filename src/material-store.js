@@ -103,7 +103,7 @@ class MaterialStore extends EventEmitter {
 
     /**
      * Update `this.state` with `newState` and notify "change" event.
-     * @param {object} newState
+     * @param {Object} newState
      */
     setState(newState) {
         if (typeof this.state === 'undefined') {

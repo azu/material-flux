@@ -1,12 +1,11 @@
 // LICENSE : MIT
 "use strict";
-var assert = require("power-assert");
-var Context = require("../src").Context;
-var Store = require("../src").Store;
-var Action = require("../src").Action;
-
-var expectedData = ["data is data"];
-var keys = {
+const assert = require("power-assert");
+import {Context} from "../src";
+import {Store} from "../src";
+import {Action} from "../src";
+const expectedData = ["data is data"];
+const keys = {
     "doSomething": "doSomething"
 };
 class UserAction extends Action {

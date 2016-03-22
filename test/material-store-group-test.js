@@ -1,8 +1,8 @@
 // LICENSE : MIT
 "use strict";
-var assert = require("power-assert");
+const assert = require("power-assert");
 import {Store, StoreGroup, Context} from "../src/";
-var eventKey = "event-key";
+const eventKey = "event-key";
 class UserStore extends Store {
     constructor(context) {
         super(context);

@@ -1,8 +1,8 @@
 // LICENSE : MIT
 "use strict";
-var assert = require("power-assert");
-var Action = require("../src").Action;
-var keys = {
+const assert = require("power-assert");
+import Action from "../src/material-action";
+const keys = {
     "doSomething": "doSomething"
 };
 class UserAction extends Action {
@@ -13,8 +13,6 @@ class UserAction extends Action {
 describe("material-action-test", function () {
     describe("dispatch", function () {
         var action;
-        beforeEach(function () {
-        });
         it("should called with key and data", function (done) {
             var passedData = {"userData": true};
             var fakeDispatch = function (key, data) {
