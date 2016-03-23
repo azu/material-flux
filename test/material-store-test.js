@@ -3,7 +3,7 @@
 var assert = require("power-assert");
 import {Store} from "../src/";
 import {Context} from "../src/";
-var eventKey = "event-key";
+const eventKey = "event-key";
 class UserStore extends Store {
     constructor(context) {
         super(context);

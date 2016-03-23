@@ -1,6 +1,9 @@
 // LICENSE : MIT
 "use strict";
 export default class Action {
+    /**
+     * @param {MaterialContext} context
+     */
     constructor(context) {
         if (process.env.NODE_ENV !== 'production') {
             require("assert")(typeof context !== "undefined",

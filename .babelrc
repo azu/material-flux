@@ -1,3 +1,12 @@
 {
-  "loose": ["es6.classes"]
+  "presets": [
+    "es2015"
+  ],
+  "env": {
+    "development": {
+      "plugins": [
+        "jsdoc-to-assert"
+      ]
+    }
+  }
 }

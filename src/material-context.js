@@ -1,10 +1,10 @@
 // LICENSE : MIT
 "use strict";
-import { Dispatcher } from 'flux';
+import {Dispatcher} from 'flux';
 import {EventEmitter} from 'events';
 import Store from './material-store.js';
 
-export default class Context extends EventEmitter {
+export default class MaterialContext extends EventEmitter {
     constructor() {
         super();
         this.dispatcher = new Dispatcher();
@@ -30,6 +30,11 @@ export default class Context extends EventEmitter {
         this._stores.push(store);
     }
 
+    /**
+     * dispatch function
+     * @param {string} eventKey
+     * @param {...} args
+     */
     dispatch(eventKey, ...args) {
         this.dispatcher.dispatch({
             eventKey,
