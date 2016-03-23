@@ -3,6 +3,9 @@
 import {EventEmitter} from "events";
 import objectAssign from "object-assign";
 class MaterialStore extends EventEmitter {
+    /**
+     * @param {MaterialContext}context
+     */
     constructor(context) {
         super();
         if (process.env.NODE_ENV !== 'production') {
@@ -17,7 +20,11 @@ class MaterialStore extends EventEmitter {
         this._handlers = {};
     }
 
-
+    /**
+     * register {@link handler} for {@link eventKey}
+     * @param {string} eventKey
+     * @param {Function} handler
+     */
     register(eventKey, handler) {
         if (process.env.NODE_ENV !== 'production') {
             require("assert")(typeof this.context !== "undefined",
@@ -47,7 +54,7 @@ class MaterialStore extends EventEmitter {
         let {
             args,
             eventKey
-            } = payload;
+        } = payload;
         if (typeof this._handlers[eventKey] === "function") {
             var handler = this._handlers[eventKey];
             handler.apply(this, args);
@@ -103,7 +110,7 @@ class MaterialStore extends EventEmitter {
 
     /**
      * Update `this.state` with `newState` and notify "change" event.
-     * @param {Object} newState
+     * @param {string} newState
      */
     setState(newState) {
         if (typeof this.state === 'undefined') {

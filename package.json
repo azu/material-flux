@@ -31,11 +31,11 @@
     "typescript": "^1.4.1"
   },
   "scripts": {
-    "build": "babel src --out-dir lib --source-maps",
+    "build": "NODE_ENV=production babel src --out-dir lib --source-maps",
     "watch": "babel src --out-dir lib --watch --source-maps",
+    "prepublish": "npm run --if-present build",
     "test": "npm run build && npm run test:typings && mocha",
-    "test:typings": "tsc typings/tests/material-flux-test.ts --module commonjs --noImplicitAny",
-    "prepublish": "npm run build"
+    "test:typings": "tsc typings/tests/material-flux-test.ts --module commonjs --noImplicitAny"
   },
   "repository": {
     "type": "git",
